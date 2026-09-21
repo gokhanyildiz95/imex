@@ -28,7 +28,7 @@ npm run build
 NODE_ENV=production npm start
 ```
 
-Express serves `dist/` and the `/api/contact` endpoint on `PORT` (default 3000). Put it behind your web server or hosting platform's reverse proxy with HTTPS.
+Express serves `build/` and the `/api/contact` endpoint on `PORT` (default 3000). Put it behind your web server or hosting platform's reverse proxy with HTTPS.
 
 In production the contact form needs SMTP settings, otherwise it answers with an error instead of silently dropping messages. Set these environment variables (see `.env.example`):
 

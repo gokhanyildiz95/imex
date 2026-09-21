@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dist = path.join(__dirname, '..', 'dist');
+const dist = path.join(__dirname, '..', 'build');
 const isProd = process.env.NODE_ENV === 'production';
 const port = Number(process.env.PORT) || 3000;
 
