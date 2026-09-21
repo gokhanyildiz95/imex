@@ -16,6 +16,7 @@ export default function Footer({ t, onCookieSettings }) {
         </div>
 
         <nav className="footer__nav" aria-label="Footer">
+          <Link to="/#about">{t.nav.about}</Link>
           <Link to="/#services">{t.nav.services}</Link>
           <Link to="/#why">{t.nav.why}</Link>
           <Link to="/#faq">{t.nav.faq}</Link>
@@ -30,7 +31,7 @@ export default function Footer({ t, onCookieSettings }) {
 
       <div className="container footer__legal">
         <div className="footer__legalrow">
-          <p>© {year} IMEX Inspection. {t.footer.rights}</p>
+          <p>© {year} {siteConfig.legalName} {t.footer.rights}</p>
           <nav className="footer__policies" aria-label="Legal">
             <Link to="/kvkk">{t.footer.privacy}</Link>
             <Link to="/cookie-policy">{t.footer.cookies}</Link>

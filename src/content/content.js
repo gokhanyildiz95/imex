@@ -8,6 +8,7 @@ export const content = {
         'IMEX Inspection is a specialized inspection and surveying company in the maritime sector: cargo supervision, vessel surveying, certification, port inspections, consultancy and compliance audits.',
     },
     nav: {
+      about: 'About',
       services: 'Services',
       why: 'Why IMEX',
       faq: 'FAQ',
@@ -31,8 +32,32 @@ export const content = {
       text: 'Every container that crosses the sea passes through many hands. IMEX Inspection puts an independent, certified eye on each handover, so what leaves the port arrives as it should.',
       cta: 'Talk to our team',
     },
+    about: {
+      eyebrow: 'IMEX Denetim ve Danışmanlık Hizmetleri A.Ş.',
+      title: 'About us',
+      lead: 'IMEX Denetim ve Danışmanlık Hizmetleri A.Ş. provides independent supervision, inspection and consultancy services in import, export and port operations. We combine our industry experience with impartiality and transparent reporting, helping our clients run their commercial processes with confidence.',
+      pillars: [
+        { title: 'Impartial', text: 'Industry experience combined with an impartial approach.' },
+        { title: 'Transparent reporting', text: 'Field findings backed by photographs.' },
+        { title: 'Turkish and English', text: 'Reports delivered to our clients in both languages.' },
+      ],
+      cards: [
+        {
+          title: 'Container shipments',
+          text: 'On container shipments, we follow container condition, product, quantity and packaging checks, loading and unloading supervision, stowage and cargo securing checks, and sealing. Through these checks we help assess whether shipments comply with the contract, the order and the shipping documents.',
+          tags: ['Container condition', 'Product, quantity and packaging', 'Loading and unloading supervision', 'Stowage and securing', 'Sealing'],
+        },
+        {
+          title: 'Vessel operations at ports',
+          text: 'At ports we provide vessel loading and discharge supervision, cargo quantity determination by draft survey, weighbridge and weighing checks, tally, hold condition and cleanliness checks, sampling and damage assessment. We support our field findings with photographs and deliver them to our clients as reports in Turkish and English.',
+          tags: ['Loading and discharge supervision', 'Draft survey', 'Weighbridge and weighing', 'Tally', 'Hold condition and cleanliness', 'Sampling', 'Damage assessment'],
+        },
+      ],
+    },
     services: {
-      title: 'Our services',
+      title: 'Our services across Turkey',
+      lead: 'With the services we provide across Turkey, our aim is to help reduce commercial risk, identify possible non-conformities in good time, and keep information flowing reliably between the parties.',
+      closing: 'As IMEX Inspection, we work to be your reliable solution at every stage of your cargo.',
       items: [
         {
           id: 'cargo',
@@ -224,6 +249,7 @@ export const content = {
         'IMEX Inspection, denizcilik sektöründe uzmanlaşmış bir denetim ve ekspertiz şirketidir: kargo gözetimi, gemi ekspertizi, belgelendirme, liman denetimi, danışmanlık ve uyum denetimleri.',
     },
     nav: {
+      about: 'Hakkımızda',
       services: 'Hizmetler',
       why: 'Neden IMEX',
       faq: 'S.S.S.',
@@ -247,8 +273,32 @@ export const content = {
       text: 'Denizi aşan her konteyner pek çok elden geçer. IMEX Inspection her devir teslimde bağımsız ve sertifikalı bir göz olur; limandan çıkan yük, olması gerektiği gibi varır.',
       cta: 'Ekibimizle görüşün',
     },
+    about: {
+      eyebrow: 'IMEX Denetim ve Danışmanlık Hizmetleri A.Ş.',
+      title: 'Hakkımızda',
+      lead: 'IMEX Denetim ve Danışmanlık Hizmetleri A.Ş., ithalat, ihracat ve liman operasyonlarında bağımsız gözetim, denetim ve danışmanlık hizmetleri sunar. Sektörel deneyimimizi tarafsızlık ve şeffaf raporlama anlayışıyla birleştirerek müşterilerimizin ticari süreçlerini güvenle yürütmelerine destek oluruz.',
+      pillars: [
+        { title: 'Tarafsızlık', text: 'Sektörel deneyim, tarafsız bir yaklaşımla birleşir.' },
+        { title: 'Şeffaf raporlama', text: 'Saha bulguları fotoğraflarla desteklenir.' },
+        { title: 'Türkçe ve İngilizce', text: 'Raporlar müşterilerimize iki dilde iletilir.' },
+      ],
+      cards: [
+        {
+          title: 'Konteyner sevkiyatları',
+          text: 'Konteyner sevkiyatlarında; konteyner kondisyonu, ürün, miktar ve ambalaj kontrolleri, yükleme ve tahliye gözetimi, istifleme ve yük sabitleme kontrolleri ile mühürleme işlemlerini takip ederiz. Gerçekleştirdiğimiz kontrollerle sevkiyatların sözleşme, sipariş ve sevkiyat belgelerine uygunluğunun değerlendirilmesine katkı sağlarız.',
+          tags: ['Konteyner kondisyonu', 'Ürün, miktar ve ambalaj', 'Yükleme ve tahliye gözetimi', 'İstifleme ve yük sabitleme', 'Mühürleme'],
+        },
+        {
+          title: 'Limanlarda gemi operasyonları',
+          text: 'Limanlarda gemi yükleme ve tahliye gözetimi, draft survey ile yük miktarı tespiti, kantar ve tartım kontrolleri, puantaj, ambar kondisyon ve temizlik kontrolleri, numune alma ve hasar tespiti hizmetleri sunarız. Saha bulgularını fotoğraflarla destekleyerek Türkçe ve İngilizce raporlar halinde müşterilerimize iletiriz.',
+          tags: ['Yükleme ve tahliye gözetimi', 'Draft survey', 'Kantar ve tartım', 'Puantaj', 'Ambar kondisyon ve temizlik', 'Numune alma', 'Hasar tespiti'],
+        },
+      ],
+    },
     services: {
-      title: 'Hizmetlerimiz',
+      title: 'Türkiye Genelinde Sunduğumuz Hizmetler',
+      lead: 'Türkiye genelinde sunduğumuz hizmetlerde amacımız; ticari risklerin azaltılmasına, olası uygunsuzlukların zamanında belirlenmesine ve taraflar arasında güvenilir bilgi akışının sağlanmasına yardımcı olmaktır.',
+      closing: 'IMEX Inspection olarak, yükünüzün her aşamasında güvenilir çözümünüz olmak için çalışıyoruz.',
       items: [
         {
           id: 'cargo',

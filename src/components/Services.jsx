@@ -4,6 +4,8 @@ export default function Services({ t }) {
       <div className="container services__layout">
         <div className="services__head">
           <h2 id="services-title" className="section__title">{t.services.title}</h2>
+          <p className="services__lead">{t.services.lead}</p>
+          <p className="services__quote">{t.services.closing}</p>
         </div>
         <ul className="services__list">
           {t.services.items.map((s) => (

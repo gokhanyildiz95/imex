@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from '../router.jsx';
 
-const SECTIONS = ['services', 'why', 'faq', 'contact'];
+const SECTIONS = ['about', 'services', 'why', 'faq', 'contact'];
 
 export default function Header({ t, onToggleLang, path, solidOnTop }) {
   const [open, setOpen] = useState(false);
@@ -57,6 +57,7 @@ export default function Header({ t, onToggleLang, path, solidOnTop }) {
           className={`header__nav${open ? ' header__nav--open' : ''}`}
           aria-label="Main"
         >
+          <Link to="/#about" onClick={close} aria-current={active === 'about' ? 'true' : undefined}>{t.nav.about}</Link>
           <Link to="/#services" onClick={close} aria-current={active === 'services' ? 'true' : undefined}>{t.nav.services}</Link>
           <Link to="/#why" onClick={close} aria-current={active === 'why' ? 'true' : undefined}>{t.nav.why}</Link>
           <Link to="/#faq" onClick={close} aria-current={active === 'faq' ? 'true' : undefined}>{t.nav.faq}</Link>

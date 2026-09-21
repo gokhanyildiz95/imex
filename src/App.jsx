@@ -4,6 +4,7 @@ import { getPost } from './content/blog.js';
 import { legal } from './content/legal.js';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
+import About from './components/About.jsx';
 import Services from './components/Services.jsx';
 import WhyUs from './components/WhyUs.jsx';
 import Faq from './components/Faq.jsx';
@@ -91,6 +92,7 @@ export default function App() {
       {route.name === 'home' && (
         <main id="top">
           <Hero t={t} />
+          <About t={t} />
           <Services t={t} />
           <WhyUs t={t} />
           <Faq t={t} lang={lang} />

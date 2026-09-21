@@ -1,9 +1,8 @@
 // Contact details shown in the contact section and footer.
 // Any empty value is simply not displayed.
 export const siteConfig = {
-  // Registered trade title, used as the data controller in the KVKK notice.
-  // Replace with the exact title from your trade registry, e.g. "IMEX Inspection Ltd. Şti."
-  legalName: 'IMEX Inspection',
+  // Registered trade title, used as the data controller in the KVKK notice and the footer.
+  legalName: 'IMEX Denetim ve Danışmanlık Hizmetleri A.Ş.',
   emails: ['info@imexinspection.com', 'eren@imexinspection.com'],
   phone: '+90 552 230 73 69',
   address: 'Yeni Bağlıca Mahallesi, Çambayırı Caddesi, 1123. Sokak, Flora Bağlıca Sitesi C7 Blok No:1',
