@@ -60,12 +60,18 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ ok: false, error: 'Please fill in your name, a valid e-mail and a message.' });
   }
 
+  // The form requires the KVKK privacy notice to be acknowledged; keep that on record.
+  if (!body.kvkk) {
+    return res.status(400).json({ ok: false, error: 'Please confirm that you have read the KVKK privacy notice.' });
+  }
+
   const text = [
     `Name: ${name}`,
     `Company: ${company || '-'}`,
     `E-mail: ${email}`,
     `Phone: ${phone || '-'}`,
     `Service: ${service || '-'}`,
+    `KVKK notice acknowledged: yes (${new Date().toISOString()})`,
     '',
     message,
   ].join('\n');

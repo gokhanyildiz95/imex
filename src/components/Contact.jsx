@@ -25,10 +25,15 @@ export default function Contact({ t }) {
     }
   }
 
+  const { emails, phone, address, mapQuery } = siteConfig;
+  const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapQuery || address)}`;
   const details = [
-    siteConfig.email && { label: c.email, value: siteConfig.email, href: `mailto:${siteConfig.email}` },
-    siteConfig.phone && { label: c.phone, value: siteConfig.phone, href: `tel:${siteConfig.phone.replace(/\s+/g, '')}` },
-    siteConfig.address && { label: c.address, value: siteConfig.address },
+    emails.length > 0 && {
+      label: c.email,
+      items: emails.map((mail) => ({ value: mail, href: `mailto:${mail}` })),
+    },
+    phone && { label: c.phone, items: [{ value: phone, href: `tel:${phone.replace(/\s+/g, '')}` }] },
+    address && { label: c.address, items: [{ value: address, href: directionsHref, map: true }] },
   ].filter(Boolean);
 
   return (
@@ -42,7 +47,26 @@ export default function Contact({ t }) {
               {details.map((d) => (
                 <div key={d.label}>
                   <dt>{d.label}</dt>
-                  <dd>{d.href ? <a href={d.href}>{d.value}</a> : d.value}</dd>
+                  {d.items.map((it) => (
+                    <dd key={it.value}>
+                      {it.map ? (
+                        <a href={it.href} target="_blank" rel="noopener noreferrer" aria-label={`${it.value} (${c.directions})`}>
+                          {it.value}
+                        </a>
+                      ) : it.href ? (
+                        <a href={it.href}>{it.value}</a>
+                      ) : (
+                        it.value
+                      )}
+                    </dd>
+                  ))}
+                  {d.items.some((it) => it.map) && (
+                    <dd>
+                      <a className="contact__route" href={directionsHref} target="_blank" rel="noopener noreferrer">
+                        {c.directions} <span aria-hidden="true">→</span>
+                      </a>
+                    </dd>
+                  )}
                 </div>
               ))}
             </dl>
@@ -85,6 +109,15 @@ export default function Contact({ t }) {
           <label className="field">
             <span className="field__label">{f.message}</span>
             <textarea name="message" rows="5" required minLength={10} maxLength={4000} />
+          </label>
+
+          <label className="check">
+            <input name="kvkk" type="checkbox" required />
+            <span>
+              {f.kvkkPre}
+              <a href="/kvkk" target="_blank" rel="noopener">{f.kvkkLink}</a>
+              {f.kvkkPost}
+            </span>
           </label>
 
           {/* Honeypot: hidden from people, tempting for bots */}

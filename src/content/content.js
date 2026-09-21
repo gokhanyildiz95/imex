@@ -10,6 +10,8 @@ export const content = {
     nav: {
       services: 'Services',
       why: 'Why IMEX',
+      faq: 'FAQ',
+      blog: 'Blog',
       contact: 'Contact',
       menu: 'Menu',
       switchTo: 'TR',
@@ -99,6 +101,7 @@ export const content = {
       email: 'E-mail',
       phone: 'Phone',
       address: 'Address',
+      directions: 'Get directions',
       form: {
         name: 'Full name',
         company: 'Company',
@@ -108,15 +111,109 @@ export const content = {
         serviceAny: 'Not sure yet',
         message: 'Message',
         optional: 'optional',
+        kvkkPre: 'I have read the ',
+        kvkkLink: 'KVKK Privacy Notice',
+        kvkkPost: ' and understand how my data is processed.',
         send: 'Send request',
         sending: 'Sending…',
         success: 'Request sent. We will get back to you by e-mail.',
         error: 'The request could not be sent. Please try again, or write to us directly.',
       },
     },
+    faq: {
+      title: 'Frequently asked questions',
+      lead: 'Straight answers about cargo supervision, vessel surveying, certification and how to work with IMEX Inspection.',
+      items: [
+        {
+          q: 'What does IMEX Inspection do?',
+          a: 'IMEX Inspection is a specialized inspection and surveying company in the maritime and logistics sector. We provide cargo and load supervision, vessel surveying, certification and documentation, port inspections, consultancy and training, and environmental and safety compliance audits, all in line with international standards.',
+        },
+        {
+          q: 'What is cargo supervision and why do I need it?',
+          a: 'Cargo supervision is an independent check of the quantity, condition and handling of cargo while it is loaded or unloaded. It gives shipper, carrier, buyer and insurer a neutral record of what actually happened, which reduces the risk of damage claims and quantity disputes and supports compliance with international trade standards.',
+        },
+        {
+          q: 'What is a draft survey?',
+          a: 'A draft survey estimates the weight of a bulk cargo by reading a ship’s draft marks before and after loading or discharge and calculating the change in displacement. It is the standard way to check the quantity of coal, grain, ore and similar cargoes.',
+          link: { to: '/blog/draft-survey-explained', label: 'Read: Draft survey explained' },
+        },
+        {
+          q: 'What does a vessel survey cover?',
+          a: 'A vessel survey is an inspection of a ship’s technical condition and operational safety against international standards. It typically looks at the hull, machinery, safety and life-saving equipment, and the certificates and records on board. Owners, buyers, charterers and insurers use it to understand a vessel’s real condition.',
+        },
+        {
+          q: 'What is checked during container loading?',
+          a: 'An inspector checks the condition of the container, compares the cargo with the shipping documents, watches stowage and securing, and records the seal number with photographs. Any damaged or wrongly labelled units are noted before the doors are closed, not after arrival.',
+          link: { to: '/blog/container-loading-inspection', label: 'Read: What an independent inspector checks' },
+        },
+        {
+          q: 'What is port state control and how can a ship prepare?',
+          a: 'Port state control (PSC) is the inspection of foreign-flagged ships in a port to check that they meet international rules such as SOLAS, MARPOL, MLC and STCW. To prepare, check that certificates and records are valid, that safety and pollution-prevention equipment works, and that the crew can perform drills. A pre-arrival review by an independent surveyor helps to find problems in time.',
+          link: { to: '/blog/port-state-control-checklist', label: 'Read: Port state control checklist' },
+        },
+        {
+          q: 'Why use an independent inspection company?',
+          a: 'An independent inspector has no commercial stake in the result. Shipper, carrier and consignee each have their own interests, so a neutral report is more credible to insurers, banks and, if needed, courts. Transparency and detailed reporting are the core of our approach.',
+        },
+        {
+          q: 'What environmental and safety compliance audits do you carry out?',
+          a: 'We audit maritime operations against international environmental regulations and safety standards. The aim is to find gaps early, reduce pollution-related and safety risks, and support sustainable operations. Consultancy and training can follow, so that the fixes stay in place.',
+        },
+        {
+          q: 'What information should I send to request an inspection?',
+          a: 'It helps to include the type of service you need, the cargo type and quantity, the vessel name and IMO number if known, the port, and the expected dates. Shipping documents such as the bill of lading or booking details are useful too. If you are not sure what you need, describe the situation and we will recommend the right inspection.',
+        },
+        {
+          q: 'How do I contact IMEX Inspection?',
+          a: 'Use the request form in the contact section of this page. Choose a service (or "Not sure yet"), describe your cargo, vessel or port operation, and we will reply to the e-mail address you give us.',
+          link: { to: '/#contact', label: 'Request an inspection' },
+        },
+      ],
+    },
+    legal: { updated: 'Last updated' },
+    blog: {
+      meta: {
+        title: 'Blog | IMEX Inspection',
+        description:
+          'Practical articles from IMEX Inspection on cargo supervision, vessel surveying and compliance in maritime and logistics.',
+      },
+      title: 'Insights from the field',
+      lead: 'Practical notes on cargo supervision, vessel surveying and compliance, from the people who do the inspections.',
+      readMore: 'Read article',
+      minutes: 'min read',
+      home: 'Home',
+      all: 'All articles',
+      more: 'More articles',
+      ctaTitle: 'Have a cargo, vessel or port call coming up?',
+      ctaText: 'Tell us what you are shipping and where. We will suggest the right inspection.',
+      ctaButton: 'Request an inspection',
+      notFoundTitle: 'Page not found',
+      notFoundText: 'The page you are looking for does not exist or has moved.',
+    },
+    cookie: {
+      title: 'Cookie preferences',
+      text: 'This site uses only the storage it needs to work, such as your language choice. Analytics cookies, if we ever add them, run only with your consent.',
+      policy: 'Cookie Policy',
+      privacy: 'KVKK Privacy Notice',
+      acceptAll: 'Accept all',
+      necessaryOnly: 'Necessary only',
+      prefs: 'Preferences',
+      save: 'Save preferences',
+      necessary: {
+        title: 'Necessary',
+        text: 'Needed for the site to work and to remember your language and this choice. Always on.',
+      },
+      analytics: {
+        title: 'Analytics',
+        text: 'Visitor statistics. No analytics tool is used on the site today; if one is added it will only run with this permission.',
+      },
+    },
     footer: {
       tagline: 'Maritime and logistics inspections in compliance with international standards.',
       rights: 'All rights reserved.',
+      privacy: 'KVKK Privacy Notice',
+      cookies: 'Cookie Policy',
+      cookieSettings: 'Cookie preferences',
     },
   },
 
@@ -129,6 +226,8 @@ export const content = {
     nav: {
       services: 'Hizmetler',
       why: 'Neden IMEX',
+      faq: 'S.S.S.',
+      blog: 'Blog',
       contact: 'İletişim',
       menu: 'Menü',
       switchTo: 'EN',
@@ -218,6 +317,7 @@ export const content = {
       email: 'E-posta',
       phone: 'Telefon',
       address: 'Adres',
+      directions: 'Yol tarifi al',
       form: {
         name: 'Ad soyad',
         company: 'Şirket',
@@ -227,15 +327,109 @@ export const content = {
         serviceAny: 'Henüz emin değilim',
         message: 'Mesaj',
         optional: 'isteğe bağlı',
+        kvkkPre: '',
+        kvkkLink: 'KVKK Aydınlatma Metni’ni',
+        kvkkPost: ' okudum, kişisel verilerimin nasıl işlendiğini anladım.',
         send: 'Talebi gönder',
         sending: 'Gönderiliyor…',
         success: 'Talebiniz gönderildi. E-posta ile size dönüş yapacağız.',
         error: 'Talep gönderilemedi. Lütfen tekrar deneyin ya da bize doğrudan yazın.',
       },
     },
+    faq: {
+      title: 'Sıkça sorulan sorular',
+      lead: 'Kargo gözetimi, gemi ekspertizi, belgelendirme ve IMEX Inspection ile çalışma hakkında net cevaplar.',
+      items: [
+        {
+          q: 'IMEX Inspection ne iş yapar?',
+          a: 'IMEX Inspection, denizcilik ve lojistik sektöründe uzmanlaşmış bir denetim ve ekspertiz şirketidir. Yük ve kargo gözetimi, gemi ekspertizi, belgelendirme ve dokümantasyon, liman denetimi, danışmanlık ve eğitim ile çevre ve güvenlik uyum denetimleri hizmetlerini uluslararası standartlara uygun olarak sunuyoruz.',
+        },
+        {
+          q: 'Kargo gözetimi nedir, neden gerekir?',
+          a: 'Kargo gözetimi, yük yüklenirken veya boşaltılırken miktarının, durumunun ve elleçlenmesinin bağımsız biri tarafından kontrol edilmesidir. Yükleyiciye, taşıyıcıya, alıcıya ve sigortacıya olanların tarafsız bir kaydını verir; hasar taleplerini ve miktar uyuşmazlıklarını azaltır, uluslararası ticaret standartlarına uyumu destekler.',
+        },
+        {
+          q: 'Draft survey nedir?',
+          a: 'Draft survey (su çekimi ölçümü), geminin draft işaretlerinin yükleme veya boşaltma öncesinde ve sonrasında okunup deplasman farkının hesaplanmasıyla dökme yükün ağırlığını tahmin etme yöntemidir. Kömür, tahıl, cevher gibi yüklerin miktarını doğrulamanın standart yoludur.',
+          link: { to: '/blog/draft-survey-explained', label: 'Oku: Draft survey nedir?' },
+        },
+        {
+          q: 'Gemi ekspertizi neleri kapsar?',
+          a: 'Gemi ekspertizi, geminin teknik durumunun ve operasyonel güvenliğinin uluslararası standartlara göre denetlenmesidir. Genellikle gövde, makine, emniyet ve can kurtarma ekipmanı ile gemideki sertifika ve kayıtlar incelenir. Armatörler, alıcılar, kiracılar ve sigortacılar geminin gerçek durumunu anlamak için kullanır.',
+        },
+        {
+          q: 'Konteyner yüklemesinde neler kontrol edilir?',
+          a: 'Eksper konteynerin durumunu kontrol eder, yükü sevkiyat belgeleriyle karşılaştırır, istif ve bağlamayı izler, mühür numarasını fotoğraflarla kaydeder. Hasarlı veya yanlış etiketli ürünler, kapılar kapatılmadan önce tespit edilir; varıştan sonra değil.',
+          link: { to: '/blog/container-loading-inspection', label: 'Oku: Bağımsız eksper neleri kontrol eder?' },
+        },
+        {
+          q: 'Liman devleti denetimi (PSC) nedir, gemi nasıl hazırlanır?',
+          a: 'Liman devleti denetimi (PSC), yabancı bayraklı gemilerin SOLAS, MARPOL, MLC ve STCW gibi uluslararası kurallara uygunluğunun limanda denetlenmesidir. Hazırlanmak için sertifika ve kayıtların geçerli olduğunu, emniyet ve kirlilik önleme ekipmanının çalıştığını ve mürettebatın tatbikatları yapabildiğini kontrol edin. Varış öncesinde bağımsız bir eksperle yapılan inceleme sorunları zamanında bulmaya yardımcı olur.',
+          link: { to: '/blog/port-state-control-checklist', label: 'Oku: Liman devleti denetimi kontrol listesi' },
+        },
+        {
+          q: 'Neden bağımsız bir denetim şirketi kullanmalıyım?',
+          a: 'Bağımsız bir eksperin sonuçta ticari bir çıkarı yoktur. Yükleyici, taşıyıcı ve alıcının her birinin kendi çıkarı olduğundan, tarafsız bir rapor sigortacılar, bankalar ve gerektiğinde mahkemeler nezdinde daha güvenilirdir. Yaklaşımımızın özü şeffaflık ve ayrıntılı raporlamadır.',
+        },
+        {
+          q: 'Hangi çevre ve güvenlik uyum denetimlerini yapıyorsunuz?',
+          a: 'Denizcilik operasyonlarını uluslararası çevre düzenlemeleri ve güvenlik standartları açısından denetliyoruz. Amaç, eksikleri erken bulmak, kirlilik ve güvenlik risklerini azaltmak ve sürdürülebilir operasyonları desteklemektir. Düzeltmelerin kalıcı olması için ardından danışmanlık ve eğitim verilebilir.',
+        },
+        {
+          q: 'Denetim talep etmek için hangi bilgileri göndermeliyim?',
+          a: 'İhtiyaç duyduğunuz hizmet türünü, yük türünü ve miktarını, biliniyorsa gemi adı ve IMO numarasını, limanı ve beklenen tarihleri belirtmeniz işimizi kolaylaştırır. Konşimento veya rezervasyon bilgileri gibi sevkiyat belgeleri de faydalıdır. Ne gerektiğinden emin değilseniz durumu anlatın, size uygun denetimi önerelim.',
+        },
+        {
+          q: 'IMEX Inspection ile nasıl iletişime geçerim?',
+          a: 'Bu sayfadaki iletişim bölümünden talep formunu doldurun. Bir hizmet seçin (veya "Henüz emin değilim" deyin), kargonuzu, geminizi ya da liman operasyonunuzu anlatın; verdiğiniz e-posta adresine dönüş yapalım.',
+          link: { to: '/#contact', label: 'Denetim talep edin' },
+        },
+      ],
+    },
+    legal: { updated: 'Son güncelleme' },
+    blog: {
+      meta: {
+        title: 'Blog | IMEX Inspection',
+        description:
+          'IMEX Inspection’dan denizcilik ve lojistikte kargo gözetimi, gemi ekspertizi ve uyum üzerine pratik yazılar.',
+      },
+      title: 'Sahadan notlar',
+      lead: 'Kargo gözetimi, gemi ekspertizi ve uyum üzerine, denetimleri bizzat yapan ekibimizden pratik notlar.',
+      readMore: 'Yazıyı oku',
+      minutes: 'dk okuma',
+      home: 'Ana sayfa',
+      all: 'Tüm yazılar',
+      more: 'Diğer yazılar',
+      ctaTitle: 'Yaklaşan bir yük, gemi veya liman uğrağınız mı var?',
+      ctaText: 'Ne taşıdığınızı ve nereye gittiğini söyleyin. Size uygun denetimi önerelim.',
+      ctaButton: 'Denetim talep edin',
+      notFoundTitle: 'Sayfa bulunamadı',
+      notFoundText: 'Aradığınız sayfa mevcut değil veya taşınmış.',
+    },
+    cookie: {
+      title: 'Çerez tercihleri',
+      text: 'Bu site yalnızca çalışması için gerekli depolamayı (ör. dil tercihiniz) kullanır. Analitik çerezler, ileride eklenirse, yalnızca izninizle çalışır.',
+      policy: 'Çerez Politikası',
+      privacy: 'KVKK Aydınlatma Metni',
+      acceptAll: 'Tümünü kabul et',
+      necessaryOnly: 'Sadece zorunlu',
+      prefs: 'Tercihler',
+      save: 'Tercihlerimi kaydet',
+      necessary: {
+        title: 'Zorunlu',
+        text: 'Sitenin çalışması ile dil ve bu seçiminizin hatırlanması için gereklidir. Her zaman açıktır.',
+      },
+      analytics: {
+        title: 'Analitik',
+        text: 'Ziyaretçi istatistikleri içindir. Sitede şu anda analitik araç kullanılmıyor; eklenirse yalnızca bu izinle çalışır.',
+      },
+    },
     footer: {
       tagline: 'Uluslararası standartlara uygun denizcilik ve lojistik denetimleri.',
       rights: 'Tüm hakları saklıdır.',
+      privacy: 'KVKK Aydınlatma Metni',
+      cookies: 'Çerez Politikası',
+      cookieSettings: 'Çerez tercihleri',
     },
   },
 };

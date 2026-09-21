@@ -1,7 +1,12 @@
 // Contact details shown in the contact section and footer.
-// Fill these in; any empty value is simply not displayed.
+// Any empty value is simply not displayed.
 export const siteConfig = {
-  email: '',
-  phone: '',
-  address: '',
+  // Registered trade title, used as the data controller in the KVKK notice.
+  // Replace with the exact title from your trade registry, e.g. "IMEX Inspection Ltd. Şti."
+  legalName: 'IMEX Inspection',
+  emails: ['info@imexinspection.com', 'eren@imexinspection.com'],
+  phone: '+90 552 230 73 69',
+  address: 'Yeni Bağlıca Mahallesi, Çambayırı Caddesi, 1123. Sokak, Flora Bağlıca Sitesi C7 Blok No:1',
+  // Used for the directions link; add the district and city so the pin lands in the right place.
+  mapQuery: 'Flora Bağlıca Sitesi, Yeni Bağlıca Mahallesi, Çambayırı Caddesi, Etimesgut, Ankara',
 };

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Link } from '../router.jsx';
 
-const SECTIONS = ['services', 'why', 'contact'];
+const SECTIONS = ['services', 'why', 'faq', 'contact'];
 
-export default function Header({ t, onToggleLang }) {
+export default function Header({ t, onToggleLang, path, solidOnTop }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('');
@@ -16,6 +17,7 @@ export default function Header({ t, onToggleLang }) {
   }, []);
 
   useEffect(() => {
+    setActive('');
     const els = SECTIONS.map((id) => document.getElementById(id)).filter(Boolean);
     const io = new IntersectionObserver(
       (entries) => {
@@ -32,7 +34,7 @@ export default function Header({ t, onToggleLang }) {
       io.disconnect();
       window.removeEventListener('scroll', onTop);
     };
-  }, []);
+  }, [path]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -41,23 +43,25 @@ export default function Header({ t, onToggleLang }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [open]);
 
-  const solid = scrolled || open;
+  const solid = scrolled || open || solidOnTop;
 
   return (
     <header className={`header${solid ? ' header--solid' : ''}`}>
       <div className="header__bar container">
-        <a className="header__logo" href="#top" aria-label={t.nav.home} onClick={close}>
+        <Link className="header__logo" to="/" aria-label={t.nav.home} onClick={close}>
           <img src={solid ? '/logo.png' : '/logo-white.png'} alt="IMEX Inspection" width="106" height="66" />
-        </a>
+        </Link>
 
         <nav
           id="site-nav"
           className={`header__nav${open ? ' header__nav--open' : ''}`}
           aria-label="Main"
         >
-          <a href="#services" onClick={close} aria-current={active === 'services' ? 'true' : undefined}>{t.nav.services}</a>
-          <a href="#why" onClick={close} aria-current={active === 'why' ? 'true' : undefined}>{t.nav.why}</a>
-          <a href="#contact" onClick={close} aria-current={active === 'contact' ? 'true' : undefined}>{t.nav.contact}</a>
+          <Link to="/#services" onClick={close} aria-current={active === 'services' ? 'true' : undefined}>{t.nav.services}</Link>
+          <Link to="/#why" onClick={close} aria-current={active === 'why' ? 'true' : undefined}>{t.nav.why}</Link>
+          <Link to="/#faq" onClick={close} aria-current={active === 'faq' ? 'true' : undefined}>{t.nav.faq}</Link>
+          <Link to="/blog" onClick={close} aria-current={path.startsWith('/blog') ? 'true' : undefined}>{t.nav.blog}</Link>
+          <Link to="/#contact" onClick={close} aria-current={active === 'contact' ? 'true' : undefined}>{t.nav.contact}</Link>
         </nav>
 
         <div className="header__tools">

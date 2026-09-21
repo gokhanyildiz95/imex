@@ -1,6 +1,7 @@
+import { Link } from '../router.jsx';
 import { siteConfig } from '../content/site.config.js';
 
-export default function Footer({ t }) {
+export default function Footer({ t, onCookieSettings }) {
   const year = new Date().getFullYear();
   return (
     <footer className="footer">
@@ -15,15 +16,27 @@ export default function Footer({ t }) {
         </div>
 
         <nav className="footer__nav" aria-label="Footer">
-          <a href="#services">{t.nav.services}</a>
-          <a href="#why">{t.nav.why}</a>
-          <a href="#contact">{t.nav.contact}</a>
-          {siteConfig.email && <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>}
+          <Link to="/#services">{t.nav.services}</Link>
+          <Link to="/#why">{t.nav.why}</Link>
+          <Link to="/#faq">{t.nav.faq}</Link>
+          <Link to="/blog">{t.nav.blog}</Link>
+          <Link to="/#contact">{t.nav.contact}</Link>
+          {siteConfig.emails.map((mail) => (
+            <a key={mail} href={`mailto:${mail}`}>{mail}</a>
+          ))}
+          {siteConfig.phone && <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}>{siteConfig.phone}</a>}
         </nav>
       </div>
 
       <div className="container footer__legal">
-        <p>© {year} IMEX Inspection. {t.footer.rights}</p>
+        <div className="footer__legalrow">
+          <p>© {year} IMEX Inspection. {t.footer.rights}</p>
+          <nav className="footer__policies" aria-label="Legal">
+            <Link to="/kvkk">{t.footer.privacy}</Link>
+            <Link to="/cookie-policy">{t.footer.cookies}</Link>
+            <button type="button" onClick={onCookieSettings}>{t.footer.cookieSettings}</button>
+          </nav>
+        </div>
       </div>
     </footer>
   );
