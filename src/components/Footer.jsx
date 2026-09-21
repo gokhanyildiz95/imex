@@ -21,12 +21,15 @@ export default function Footer({ t, onCookieSettings }) {
           <Link to="/#why">{t.nav.why}</Link>
           <Link to="/#faq">{t.nav.faq}</Link>
           <Link to="/blog">{t.nav.blog}</Link>
+        </nav>
+
+        <div className="footer__nav footer__contact">
           <Link to="/#contact">{t.nav.contact}</Link>
           {siteConfig.emails.map((mail) => (
             <a key={mail} href={`mailto:${mail}`}>{mail}</a>
           ))}
           {siteConfig.phone && <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}>{siteConfig.phone}</a>}
-        </nav>
+        </div>
       </div>
 
       <div className="container footer__legal">
