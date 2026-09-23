@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import express from 'express';
-import nodemailer from 'nodemailer';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createTransport, describeSmtpError, missingEnv } from './mailer.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, '..', 'build');
@@ -16,15 +16,9 @@ app.use(express.json({ limit: '20kb' }));
 
 // --- Contact form ---------------------------------------------------------
 
-const smtpReady = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'MAIL_TO'].every((k) => process.env[k]);
-const transporter = smtpReady
-  ? nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: Number(process.env.SMTP_PORT) === 465,
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-    })
-  : null;
+const missing = missingEnv();
+const transporter = missing.length ? null : createTransport();
+if (missing.length) console.warn(`Contact form: missing ${missing.join(', ')}`);
 
 // Very small in-memory rate limit: 5 messages per IP per hour.
 const hits = new Map();
@@ -78,7 +72,7 @@ app.post('/api/contact', async (req, res) => {
 
   if (!transporter) {
     if (isProd) {
-      console.error('Contact form is not configured: set SMTP_* and MAIL_TO in the environment.');
+      console.error(`Contact form is not configured: missing ${missing.join(', ')}`);
       return res.status(503).json({ ok: false, error: 'The contact form is not available right now.' });
     }
     console.log('\n--- Contact form (SMTP not configured, printing instead) ---\n' + text + '\n');
@@ -95,12 +89,13 @@ app.post('/api/contact', async (req, res) => {
     });
     return res.json({ ok: true });
   } catch (err) {
-    console.error('Failed to send contact e-mail:', err.message);
+    console.error(`Failed to send contact e-mail: ${describeSmtpError(err)}`);
     return res.status(502).json({ ok: false, error: 'The message could not be sent. Please try again.' });
   }
 });
 
-app.get('/api/health', (_req, res) => res.json({ ok: true }));
+// `mail` tells whether the SMTP settings are present (never their values), to check a deployment.
+app.get('/api/health', (_req, res) => res.json({ ok: true, mail: missing.length === 0 }));
 
 // --- Static site (production build) ----------------------------------------
 

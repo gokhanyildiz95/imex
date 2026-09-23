@@ -8,6 +8,7 @@
     "dev": "concurrently -n web,api -c green,blue \"vite\" \"node --watch server/index.js\"",
     "build": "vite build",
     "start": "node server/index.js",
+    "check:mail": "node server/check-mail.js",
     "preview": "vite preview"
   },
   "dependencies": {
