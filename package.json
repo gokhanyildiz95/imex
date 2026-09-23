@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "main": "server/index.js",
   "description": "Corporate website for IMEX Inspection (imexinspection.com) - React + Vite front end, Node.js + Express server",
   "scripts": {
     "dev": "concurrently -n web,api -c green,blue \"vite\" \"node --watch server/index.js\"",

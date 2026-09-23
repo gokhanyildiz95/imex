@@ -34,6 +34,29 @@ In production the contact form needs SMTP settings, otherwise it answers with an
 
 `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_TO`, `MAIL_FROM`
 
+## Deploy on Hostinger
+
+The site must run as a **Node.js web app**, not as a static site: the contact form posts to `/api/contact`, which only exists while `server/index.js` is running. If `https://<domain>/api/contact` answers with an HTML 404 page, the site is being served statically.
+
+In hPanel, set up the domain as a Node.js web app with:
+
+| Setting | Value |
+| --- | --- |
+| Framework / preset | Express (not Vite) |
+| Branch | the branch that holds the latest code |
+| Node.js version | 18 or newer |
+| Build command | `npm run build` |
+| Start command / entry file | `npm start` / `server/index.js` |
+| Environment variables | `NODE_ENV=production`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_TO`, `MAIL_FROM` |
+
+Make sure `public_html` does not hold an uploaded copy of the site, otherwise it is served instead of the app. Restart the app after changing environment variables.
+
+Check a deployment:
+
+- `https://<domain>/api/health` should return `{"ok":true,"mail":true}`. `"mail":false` means the SMTP variables are not loaded; an HTML page means the Node.js app is not running.
+- `npm run check:mail` (locally, with a `.env`) logs in to the SMTP server without sending anything and prints the result.
+- If sending fails, the app log shows `Failed to send contact e-mail: <code> | <SMTP reply>`.
+
 ## Where to edit things
 
 | What | File |
