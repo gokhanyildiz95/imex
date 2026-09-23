@@ -38,15 +38,18 @@ In production the contact form needs SMTP settings, otherwise it answers with an
 
 The site must run as a **Node.js web app**, not as a static site: the contact form posts to `/api/contact`, which only exists while `server/index.js` is running. If `https://<domain>/api/contact` answers with an HTML 404 page, the site is being served statically.
 
-In hPanel, set up the domain as a Node.js web app with:
+Deploys are automatic: the Hostinger Node.js web app is connected to this GitHub repository (Hostinger GitHub App), and every push to the connected branch pulls the code, runs `npm install` and the build, and restarts the app. Progress and build/runtime logs are on the app's Deployments page in hPanel; **Redeploy** runs it again by hand.
+
+Because the project has both Vite and Express in `package.json`, Hostinger may auto-detect it as a static Vite site. Then pushes still deploy, but only the built pages are copied to `public_html` and the server never starts. Set the app's build settings to:
 
 | Setting | Value |
 | --- | --- |
 | Framework / preset | Express (not Vite) |
-| Branch | the branch that holds the latest code |
+| Branch | the branch you push to (this is what triggers deploys) |
 | Node.js version | 18 or newer |
 | Build command | `npm run build` |
-| Start command / entry file | `npm start` / `server/index.js` |
+| Output directory | `build` |
+| Entry file | `server/index.js` |
 | Environment variables | `NODE_ENV=production`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_TO`, `MAIL_FROM` |
 
 Make sure `public_html` does not hold an uploaded copy of the site, otherwise it is served instead of the app. Restart the app after changing environment variables.
@@ -78,4 +81,4 @@ git remote add origin https://github.com/<your-account>/<your-repo>.git
 git push -u origin main
 ```
 
-A GitHub Actions workflow (`.github/workflows/ci.yml`) installs dependencies and builds the site on every push and pull request.
+Once the repository is connected to the Hostinger Node.js web app (see above), pushing to the connected branch deploys the site.
