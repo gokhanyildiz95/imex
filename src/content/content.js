@@ -42,6 +42,7 @@ export const content = {
     },
     contact: {
       title: 'Get in Touch',
+      address: 'Address',
       email: 'E-mail',
       mapLabel: 'Ankara Head Office',
       directions: 'Get directions',
@@ -78,7 +79,6 @@ export const content = {
       home: 'Home',
     },
     footer: {
-      categoryTitle: 'Category',
       rights: 'All rights reserved.',
       privacy: 'KVKK Privacy Notice',
     },
@@ -125,6 +125,7 @@ export const content = {
     },
     contact: {
       title: 'İletişime Geçin',
+      address: 'Adres',
       email: 'E-posta',
       mapLabel: 'Ankara Baş Ofis',
       directions: 'Yol tarifi al',
@@ -161,7 +162,6 @@ export const content = {
       home: 'Ana sayfa',
     },
     footer: {
-      categoryTitle: 'Kategori',
       rights: 'Tüm hakları saklıdır.',
       privacy: 'KVKK Aydınlatma Metni',
     },
@@ -208,6 +208,7 @@ export const content = {
     },
     contact: {
       title: 'Kontakt aufnehmen',
+      address: 'Adresse',
       email: 'E-Mail',
       mapLabel: 'Ankara Hauptsitz',
       directions: 'Route berechnen',
@@ -244,7 +245,6 @@ export const content = {
       home: 'Startseite',
     },
     footer: {
-      categoryTitle: 'Kategorie',
       rights: 'Alle Rechte vorbehalten.',
       privacy: 'KVKK-Datenschutzhinweis',
     },

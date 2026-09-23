@@ -1,31 +1,18 @@
-// One icon per Solutions group, in the same order as content.services.groups
+import { faCircleCheck, faEye, faFlaskVial, faMedal, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
+
+// One Font Awesome icon per Solutions group, in the same order as content.services.groups
 // (Gözetim/Supervision, Kalite/Quality, Miktar/Quantity, Numune/Sampling).
-const GROUP_ICONS = [
-  // eye: supervision
-  <>
-    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" />
-    <circle cx="12" cy="12" r="3" />
-  </>,
-  // ribboned badge: quality
-  <>
-    <circle cx="12" cy="8" r="6" />
-    <path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5" />
-  </>,
-  // balance scale: quantity
-  <>
-    <path d="M12 3v18" />
-    <path d="M7 21h10" />
-    <path d="M5 7h14" />
-    <path d="m5 7-3 6a3 3 0 0 0 6 0z" />
-    <path d="m19 7-3 6a3 3 0 0 0 6 0z" />
-  </>,
-  // test tube: sampling
-  <>
-    <path d="M9 3h6" />
-    <path d="M10 3v6.7L4.7 19a1.5 1.5 0 0 0 1.3 2.2h12a1.5 1.5 0 0 0 1.3-2.2L14 9.7V3" />
-    <path d="M7.5 15h9" />
-  </>,
-];
+const GROUP_ICONS = [faEye, faMedal, faScaleBalanced, faFlaskVial];
+
+// Renders a Font Awesome icon definition as inline SVG, sized by CSS.
+function FaIcon({ icon: { icon }, className }) {
+  const [width, height, , , path] = icon;
+  return (
+    <svg className={className} viewBox={`0 0 ${width} ${height}`} aria-hidden="true" focusable="false">
+      <path fill="currentColor" d={Array.isArray(path) ? path.join(' ') : path} />
+    </svg>
+  );
+}
 
 export default function Services({ t }) {
   const s = t.services;
@@ -37,9 +24,7 @@ export default function Services({ t }) {
         <ul className="solutions__groups">
           {s.groups.map((group, i) => (
             <li key={group} className="solutions__group">
-              <span className="solutions__groupIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">{GROUP_ICONS[i]}</svg>
-              </span>
+              <FaIcon icon={GROUP_ICONS[i]} className="solutions__groupIcon" />
               {group}
             </li>
           ))}
@@ -47,7 +32,10 @@ export default function Services({ t }) {
 
         <ul className="solutions__items">
           {s.items.map((item) => (
-            <li key={item}>{item}</li>
+            <li key={item}>
+              <FaIcon icon={faCircleCheck} className="solutions__check" />
+              {item}
+            </li>
           ))}
         </ul>
       </div>

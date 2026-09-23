@@ -14,14 +14,11 @@ export default function Footer({ t }) {
           <img src="/logo-white.png" alt="IMEX Inspection" width="130" height="82" />
         </div>
 
-        <div className="footer__categories">
-          <p className="footer__categoriesTitle">{t.footer.categoryTitle}</p>
-          <ul className="footer__categoriesList">
-            {t.contact.form.categories.map((cat) => (
-              <li key={cat}>{cat}</li>
-            ))}
-          </ul>
-        </div>
+        <nav className="footer__nav" aria-label="Footer">
+          <Link to="/#services">{t.nav.services}</Link>
+          <Link to="/#about">{t.nav.about}</Link>
+          <Link to="/#contact">{t.nav.contact}</Link>
+        </nav>
       </div>
 
       <div className="container footer__legal">
