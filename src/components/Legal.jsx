@@ -1,14 +1,16 @@
 import { Link } from '../router.jsx';
 import { legal } from '../content/legal.js';
-import { PageHead, Block } from './Blog.jsx';
+import { PageHead, Block } from './PageParts.jsx';
 
 export default function Legal({ doc, t, lang }) {
-  const page = legal[doc][lang];
+  // The KVKK notice is a Turkish legal document; it exists in Turkish and English only,
+  // so German readers get the English version.
+  const page = legal[doc][lang] || legal[doc].en;
   return (
     <>
       <PageHead>
         <nav className="crumbs" aria-label="Breadcrumb">
-          <Link to="/">{t.blog.home}</Link>
+          <Link to="/">{t.notFound.home}</Link>
           <span aria-hidden="true">/</span>
           <span aria-current="page">{page.title}</span>
         </nav>

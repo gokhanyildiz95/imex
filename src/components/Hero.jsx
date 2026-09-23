@@ -14,13 +14,11 @@ export default function Hero({ t }) {
       />
       <div className="hero__shade" aria-hidden="true" />
       <div className="hero__inner container">
-        <div className="hero__copy">
-          <h1 id="hero-title" className="hero__title">{t.hero.title}</h1>
-          <p className="hero__lead">{t.hero.lead}</p>
-          <div className="hero__actions">
-            <a className="btn btn--light" href="#contact">{t.hero.primary}</a>
-            <a className="btn btn--ghost" href="#services">{t.hero.secondary}</a>
-          </div>
+        <h1 id="hero-title" className="hero__brand">{t.hero.brand}</h1>
+        <img className="hero__logo" src="/logo-white.png" alt="" width="120" height="76" />
+        <p className="hero__slogan">{t.hero.slogan}</p>
+        <div className="hero__actions">
+          <a className="btn btn--light" href="#contact">{t.nav.contact}</a>
         </div>
       </div>
 

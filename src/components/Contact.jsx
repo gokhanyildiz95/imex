@@ -25,52 +25,29 @@ export default function Contact({ t }) {
     }
   }
 
-  const { emails, phone, address, mapQuery } = siteConfig;
-  const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapQuery || address)}`;
-  const details = [
-    emails.length > 0 && {
-      label: c.email,
-      items: emails.map((mail) => ({ value: mail, href: `mailto:${mail}` })),
-    },
-    phone && { label: c.phone, items: [{ value: phone, href: `tel:${phone.replace(/\s+/g, '')}` }] },
-    address && { label: c.address, items: [{ value: address, href: directionsHref, map: true }] },
-  ].filter(Boolean);
+  const { address, mapQuery } = siteConfig;
+  const query = mapQuery || address;
+  const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
+  const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`;
 
   return (
     <section id="contact" className="section contact" aria-labelledby="contact-title">
       <div className="container contact__layout">
         <div className="contact__intro">
           <h2 id="contact-title" className="section__title">{c.title}</h2>
-          <p className="contact__lead">{c.lead}</p>
-          {details.length > 0 && (
-            <dl className="contact__details">
-              {details.map((d) => (
-                <div key={d.label}>
-                  <dt>{d.label}</dt>
-                  {d.items.map((it) => (
-                    <dd key={it.value}>
-                      {it.map ? (
-                        <a href={it.href} target="_blank" rel="noopener noreferrer" aria-label={`${it.value} (${c.directions})`}>
-                          {it.value}
-                        </a>
-                      ) : it.href ? (
-                        <a href={it.href}>{it.value}</a>
-                      ) : (
-                        it.value
-                      )}
-                    </dd>
-                  ))}
-                  {d.items.some((it) => it.map) && (
-                    <dd>
-                      <a className="contact__route" href={directionsHref} target="_blank" rel="noopener noreferrer">
-                        {c.directions} <span aria-hidden="true">→</span>
-                      </a>
-                    </dd>
-                  )}
-                </div>
-              ))}
-            </dl>
-          )}
+
+          <div className="contact__map">
+            <iframe
+              src={mapEmbedSrc}
+              title={c.mapLabel}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <span className="contact__mapLabel">{c.mapLabel}</span>
+          </div>
+          <a className="contact__route" href={directionsHref} target="_blank" rel="noopener noreferrer">
+            {c.directions} <span aria-hidden="true">→</span>
+          </a>
         </div>
 
         <form className="form" onSubmit={onSubmit} noValidate={false}>
@@ -97,11 +74,11 @@ export default function Contact({ t }) {
           </div>
 
           <label className="field">
-            <span className="field__label">{f.service}</span>
-            <select name="service" defaultValue="">
-              <option value="">{f.serviceAny}</option>
-              {t.services.items.map((s) => (
-                <option key={s.id} value={s.title}>{s.title}</option>
+            <span className="field__label">{f.category}</span>
+            <select name="category" defaultValue="" required>
+              <option value="" disabled>{f.categoryPlaceholder}</option>
+              {f.categories.map((cat) => (
+                <option key={cat} value={cat}>{cat}</option>
               ))}
             </select>
           </label>

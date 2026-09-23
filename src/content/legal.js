@@ -1,4 +1,4 @@
-// Legal pages: KVKK privacy notice and cookie policy, in Turkish and English.
+// Legal pages: the KVKK privacy notice, in Turkish and English.
 // Block types: { h2 }, { p }, { ul: [...] }, { table: { head, rows } }, { link: { to, label } }.
 import { siteConfig } from './site.config.js';
 
@@ -29,7 +29,7 @@ export const legal = {
           ul: [
             'Kimlik bilgisi: ad ve soyad.',
             'İletişim bilgisi: e-posta adresi ve (isteğe bağlı) telefon numarası.',
-            'Talep bilgisi: (isteğe bağlı) şirket adı, talep ettiğiniz hizmet ve mesajınızın içeriği.',
+            'Talep bilgisi: (isteğe bağlı) şirket adı, seçtiğiniz kategori ve mesajınızın içeriği.',
             'Onay bilgisi: bu aydınlatma metnini okuduğunuza dair onayınız ve onay tarihi.',
             'İşlem güvenliği: IP adresiniz, aşırı kullanımı önlemek amacıyla yalnızca kısa süreliğine sunucu belleğinde tutulur; kalıcı olarak kaydedilmez.',
           ],
@@ -103,7 +103,7 @@ export const legal = {
           ul: [
             'Identity: your first and last name.',
             'Contact: your e-mail address and, optionally, your phone number.',
-            'Request: optionally your company name, the service you ask about, and the content of your message.',
+            'Request: optionally your company name, the category you select, and the content of your message.',
             'Acknowledgement: your confirmation that you have read this notice, and its date.',
             'Security: your IP address is kept in server memory for a short time only, to prevent abuse. It is not stored permanently.',
           ],
@@ -153,103 +153,6 @@ export const legal = {
         {
           p: 'We may update this notice when needed. The current version is always published on this page.',
         },
-      ],
-    },
-  },
-
-  cookies: {
-    tr: {
-      title: 'Çerez Politikası',
-      description: `${legalName} internet sitesinde kullanılan çerezler ve benzeri depolama teknolojileri, bunların amaçları ve tercihlerinizi nasıl yönetebileceğiniz.`,
-      updated: '21 Eylül 2026',
-      body: [
-        {
-          p: 'Bu politika, internet sitemizde hangi çerezleri ve benzeri teknolojileri kullandığımızı, hangi amaçla kullandığımızı ve tercihlerinizi nasıl yönetebileceğinizi açıklar.',
-        },
-        { h2: 'Çerez nedir?' },
-        {
-          p: 'Çerezler ve benzeri teknolojiler (ör. tarayıcının yerel depolaması), bir siteyi ziyaret ettiğinizde cihazınıza kaydedilen küçük veri parçalarıdır. Siteyi çalıştırmak, tercihlerinizi hatırlamak veya siteyi nasıl kullandığınızı ölçmek için kullanılabilir.',
-        },
-        { h2: 'Sitemizde kullandıklarımız' },
-        {
-          table: {
-            head: ['Ad', 'Tür', 'Amaç', 'Süre', 'Kategori'],
-            rows: [
-              ['imex-lang', 'Yerel depolama, birinci taraf', 'Seçtiğiniz dili (Türkçe veya İngilizce) hatırlar.', 'Siz silene kadar', 'Zorunlu'],
-              ['imex-consent', 'Yerel depolama, birinci taraf', 'Çerez tercihinizi hatırlar, böylece aynı soruyu tekrar sormayız.', '12 ay', 'Zorunlu'],
-            ],
-          },
-        },
-        {
-          p: 'Şu anda sitemizde analitik, reklam veya pazarlama amaçlı çerez kullanılmamaktadır. İleride kullanmamız hâlinde bu politika güncellenir ve bu çerezler yalnızca onayınızla etkinleştirilir.',
-        },
-        { h2: 'Zorunlu depolama' },
-        {
-          p: 'Yukarıdaki iki kayıt sitenin çalışması ve tercihlerinizin hatırlanması için gereklidir; bunlar için ayrıca onay istemeyiz. Tarayıcınızdan engellerseniz site çalışmaya devam eder, ancak dil ve çerez tercihiniz hatırlanmaz.',
-        },
-        { h2: 'Üçüncü taraf kaynaklar' },
-        {
-          p: 'Sitemiz yazı tiplerini Google Fonts üzerinden yükler. Yazı tipi dosyaları istendiğinde IP adresiniz ve tarayıcı bilgileriniz Google sunucularına iletilir. Bu veriler Google’ın kendi gizlilik politikasına tabidir.',
-        },
-        { h2: 'Tercihlerinizi nasıl yönetirsiniz?' },
-        {
-          ul: [
-            'Sayfanın altındaki “Çerez tercihleri” bağlantısından seçiminizi istediğiniz zaman değiştirebilirsiniz.',
-            'Tarayıcı ayarlarınızdan çerezleri ve site verilerini silebilir veya engelleyebilirsiniz.',
-          ],
-        },
-        { h2: 'Kişisel verileriniz' },
-        {
-          p: 'İletişim formu aracılığıyla ilettiğiniz kişisel verilerin nasıl işlendiği KVKK Aydınlatma Metni’nde açıklanmıştır.',
-        },
-        { link: { to: '/kvkk', label: 'KVKK Aydınlatma Metni' } },
-      ],
-    },
-    en: {
-      title: 'Cookie Policy',
-      description: `The cookies and similar storage technologies used on the ${legalName} website, what they are for, and how to manage your choices.`,
-      updated: '21 September 2026',
-      body: [
-        {
-          p: 'This policy explains which cookies and similar technologies we use on our website, why we use them, and how you can manage your choices.',
-        },
-        { h2: 'What are cookies?' },
-        {
-          p: 'Cookies and similar technologies, such as your browser’s local storage, are small pieces of data saved on your device when you visit a site. They can be used to make a site work, remember your preferences, or measure how it is used.',
-        },
-        { h2: 'What we use on this site' },
-        {
-          table: {
-            head: ['Name', 'Type', 'Purpose', 'Duration', 'Category'],
-            rows: [
-              ['imex-lang', 'Local storage, first party', 'Remembers the language you chose (Turkish or English).', 'Until you clear it', 'Necessary'],
-              ['imex-consent', 'Local storage, first party', 'Remembers your cookie choice so we do not ask again.', '12 months', 'Necessary'],
-            ],
-          },
-        },
-        {
-          p: 'We currently use no analytics, advertising or marketing cookies. If we add any, this policy will be updated and they will only run with your consent.',
-        },
-        { h2: 'Necessary storage' },
-        {
-          p: 'The two entries above are needed for the site to work and to remember your choices, so we do not ask for consent for them. If you block them in your browser the site still works, but your language and cookie choice will not be remembered.',
-        },
-        { h2: 'Third-party resources' },
-        {
-          p: 'Our site loads its fonts from Google Fonts. When the font files are requested, your IP address and browser details are sent to Google’s servers. That data is subject to Google’s own privacy policy.',
-        },
-        { h2: 'How to manage your choices' },
-        {
-          ul: [
-            'Use the “Cookie preferences” link at the bottom of the page to change your choice at any time.',
-            'Delete or block cookies and site data in your browser settings.',
-          ],
-        },
-        { h2: 'Your personal data' },
-        {
-          p: 'How we handle personal data you send through the contact form is explained in the KVKK Privacy Notice.',
-        },
-        { link: { to: '/kvkk', label: 'KVKK Privacy Notice' } },
       ],
     },
   },

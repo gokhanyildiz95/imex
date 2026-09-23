@@ -53,7 +53,7 @@ app.post('/api/contact', async (req, res) => {
   const company = clean(body.company, 160);
   const email = clean(body.email, 200);
   const phone = clean(body.phone, 60);
-  const service = clean(body.service, 160);
+  const category = clean(body.category, 160);
   const message = String(body.message ?? '').trim().slice(0, 4000);
 
   if (!name || !emailRe.test(email) || message.length < 10) {
@@ -70,7 +70,7 @@ app.post('/api/contact', async (req, res) => {
     `Company: ${company || '-'}`,
     `E-mail: ${email}`,
     `Phone: ${phone || '-'}`,
-    `Service: ${service || '-'}`,
+    `Category: ${category || '-'}`,
     `KVKK notice acknowledged: yes (${new Date().toISOString()})`,
     '',
     message,

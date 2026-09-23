@@ -1,12 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from '../router.jsx';
 
-const SECTIONS = ['about', 'services', 'why', 'faq', 'contact'];
+const SECTIONS = ['services', 'about', 'contact'];
 
-export default function Header({ t, onToggleLang, path, solidOnTop }) {
+// Native language names, shown the same way regardless of the site's current language.
+const LANGS = [
+  { code: 'tr', label: 'Türkçe' },
+  { code: 'en', label: 'English' },
+  { code: 'de', label: 'Deutsch' },
+];
+
+export default function Header({ t, lang, onSelectLang, path, solidOnTop }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('');
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef(null);
   const close = () => setOpen(false);
 
   useEffect(() => {
@@ -43,6 +52,21 @@ export default function Header({ t, onToggleLang, path, solidOnTop }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [open]);
 
+  // Close the language menu on an outside click or Escape.
+  useEffect(() => {
+    if (!langOpen) return undefined;
+    const onDocClick = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+    };
+    const onKey = (e) => e.key === 'Escape' && setLangOpen(false);
+    document.addEventListener('mousedown', onDocClick);
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDocClick);
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [langOpen]);
+
   const solid = scrolled || open || solidOnTop;
 
   return (
@@ -57,24 +81,44 @@ export default function Header({ t, onToggleLang, path, solidOnTop }) {
           className={`header__nav${open ? ' header__nav--open' : ''}`}
           aria-label="Main"
         >
-          <Link to="/#about" onClick={close} aria-current={active === 'about' ? 'true' : undefined}>{t.nav.about}</Link>
           <Link to="/#services" onClick={close} aria-current={active === 'services' ? 'true' : undefined}>{t.nav.services}</Link>
-          <Link to="/#why" onClick={close} aria-current={active === 'why' ? 'true' : undefined}>{t.nav.why}</Link>
-          <Link to="/#faq" onClick={close} aria-current={active === 'faq' ? 'true' : undefined}>{t.nav.faq}</Link>
-          <Link to="/blog" onClick={close} aria-current={path.startsWith('/blog') ? 'true' : undefined}>{t.nav.blog}</Link>
+          <Link to="/#about" onClick={close} aria-current={active === 'about' ? 'true' : undefined}>{t.nav.about}</Link>
           <Link to="/#contact" onClick={close} aria-current={active === 'contact' ? 'true' : undefined}>{t.nav.contact}</Link>
         </nav>
 
         <div className="header__tools">
-          <button
-            type="button"
-            className="lang-toggle"
-            onClick={onToggleLang}
-            aria-label={t.nav.switchLabel}
-            lang={t.nav.switchTo.toLowerCase()}
-          >
-            {t.nav.switchTo}
-          </button>
+          <div className="lang" ref={langRef}>
+            <button
+              type="button"
+              className="lang-toggle"
+              aria-haspopup="true"
+              aria-expanded={langOpen}
+              aria-label={t.nav.langLabel}
+              onClick={() => setLangOpen((o) => !o)}
+            >
+              <span aria-hidden="true">🌐</span>
+            </button>
+            {langOpen && (
+              <div className="lang-menu" role="menu">
+                {LANGS.map((l) => (
+                  <button
+                    key={l.code}
+                    type="button"
+                    role="menuitem"
+                    className="lang-option"
+                    lang={l.code}
+                    aria-current={lang === l.code ? 'true' : undefined}
+                    onClick={() => {
+                      onSelectLang(l.code);
+                      setLangOpen(false);
+                    }}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <button
             type="button"
             className="menu-toggle"

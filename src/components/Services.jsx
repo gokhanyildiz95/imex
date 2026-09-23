@@ -1,28 +1,19 @@
 export default function Services({ t }) {
+  const s = t.services;
   return (
-    <section id="services" className="section services" aria-labelledby="services-title">
-      <div className="container services__layout">
-        <div className="services__head">
-          <h2 id="services-title" className="section__title">{t.services.title}</h2>
-          <p className="services__lead">{t.services.lead}</p>
-          <p className="services__quote">{t.services.closing}</p>
-        </div>
-        <ul className="services__list">
-          {t.services.items.map((s) => (
-            <li key={s.id} className="service">
-              <img
-                className="service__img"
-                src={`/media/${s.id}.jpg`}
-                alt=""
-                width="900"
-                height="600"
-                loading="lazy"
-              />
-              <div className="service__body">
-                <h3 className="service__title">{s.title}</h3>
-                <p className="service__text">{s.text}</p>
-              </div>
-            </li>
+    <section id="services" className="section solutions" aria-labelledby="solutions-title">
+      <div className="container">
+        <h2 id="solutions-title" className="section__title">{s.title}</h2>
+
+        <ul className="solutions__groups">
+          {s.groups.map((group) => (
+            <li key={group} className="solutions__group">{group}</li>
+          ))}
+        </ul>
+
+        <ul className="solutions__items">
+          {s.items.map((item) => (
+            <li key={item}>{item}</li>
           ))}
         </ul>
       </div>
