@@ -32,26 +32,25 @@ export default function Contact({ t }) {
 
   return (
     <section id="contact" className="section contact" aria-labelledby="contact-title">
-      <div className="container contact__layout">
-        <div className="contact__intro">
-          <h2 id="contact-title" className="section__title">{c.title}</h2>
+      <div className="container">
+        <h2 id="contact-title" className="section__title">{c.title}</h2>
 
-          <div className="contact__map">
-            <iframe
-              src={mapEmbedSrc}
-              title={c.mapLabel}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-            <span className="contact__mapLabel">{c.mapLabel}</span>
-          </div>
-          <a className="contact__route" href={directionsHref} target="_blank" rel="noopener noreferrer">
-            {c.directions} <span aria-hidden="true">→</span>
-          </a>
+        <div className="contact__map">
+          <iframe
+            src={mapEmbedSrc}
+            title={c.mapLabel}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <span className="contact__mapTint" aria-hidden="true" />
+          <span className="contact__mapLabel">{c.mapLabel}</span>
         </div>
+        <a className="contact__route" href={directionsHref} target="_blank" rel="noopener noreferrer">
+          {c.directions} <span aria-hidden="true">→</span>
+        </a>
 
         <form className="form" onSubmit={onSubmit} noValidate={false}>
-          <div className="form__row">
+          <div className="form__row form__row--three">
             <label className="field">
               <span className="field__label">{f.name}</span>
               <input name="name" type="text" autoComplete="name" required maxLength={120} />
@@ -60,28 +59,27 @@ export default function Contact({ t }) {
               <span className="field__label">{f.company} <em>({f.optional})</em></span>
               <input name="company" type="text" autoComplete="organization" maxLength={160} />
             </label>
-          </div>
-
-          <div className="form__row">
             <label className="field">
               <span className="field__label">{f.email}</span>
               <input name="email" type="email" autoComplete="email" required maxLength={200} />
             </label>
+          </div>
+
+          <div className="form__row">
             <label className="field">
               <span className="field__label">{f.phone} <em>({f.optional})</em></span>
               <input name="phone" type="tel" autoComplete="tel" maxLength={60} />
             </label>
+            <label className="field">
+              <span className="field__label">{f.category}</span>
+              <select name="category" defaultValue="" required>
+                <option value="" disabled>{f.categoryPlaceholder}</option>
+                {f.categories.map((cat) => (
+                  <option key={cat} value={cat}>{cat}</option>
+                ))}
+              </select>
+            </label>
           </div>
-
-          <label className="field">
-            <span className="field__label">{f.category}</span>
-            <select name="category" defaultValue="" required>
-              <option value="" disabled>{f.categoryPlaceholder}</option>
-              {f.categories.map((cat) => (
-                <option key={cat} value={cat}>{cat}</option>
-              ))}
-            </select>
-          </label>
 
           <label className="field">
             <span className="field__label">{f.message}</span>

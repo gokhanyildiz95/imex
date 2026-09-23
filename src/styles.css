@@ -402,7 +402,11 @@ ul {
 }
 
 .solutions__group {
-  padding: 1.1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1.5rem 1rem 1.25rem;
   font-family: var(--font-display);
   font-stretch: 105%;
   font-weight: 700;
@@ -412,6 +416,26 @@ ul {
   background: var(--mist);
   border-top: 3px solid var(--green);
   border-radius: 4px;
+}
+
+.solutions__groupIcon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+
+.solutions__groupIcon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .solutions__items {
@@ -458,21 +482,14 @@ ul {
 
 /* Contact */
 
-.contact__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(2rem, 6vw, 5rem);
-  align-items: start;
-}
-
 .contact__map {
   position: relative;
-  margin-top: 1.5rem;
-  aspect-ratio: 4 / 3;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  height: clamp(18rem, 32vw, 24rem);
   overflow: hidden;
   background: var(--mist);
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .contact__map iframe {
@@ -482,14 +499,22 @@ ul {
   border: 0;
 }
 
+/* A very light wash of blue over the map tiles, to match the site's palette. */
+.contact__mapTint {
+  position: absolute;
+  inset: 0;
+  background: rgba(64, 140, 224, 0.24);
+  pointer-events: none;
+}
+
 .contact__mapLabel {
   position: absolute;
-  left: 0.9rem;
-  top: 0.9rem;
-  padding: 0.45rem 0.9rem;
+  left: 1rem;
+  top: 1rem;
+  padding: 0.5rem 1rem;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #fff;
   background: var(--navy);
   border-radius: 4px;
@@ -499,7 +524,7 @@ ul {
 
 .contact__route {
   display: inline-block;
-  margin-top: 0.9rem;
+  margin-top: 1rem;
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--green);
@@ -511,15 +536,27 @@ ul {
   text-underline-offset: 4px;
 }
 
+/* The form sits on its own row, below the map, styled as a distinct card. */
 .form {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+  border-radius: 6px;
+  box-shadow: 0 20px 48px rgba(0, 36, 62, 0.08);
 }
 
 .form__row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
+}
+
+.form__row--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .field {
@@ -943,8 +980,8 @@ ul {
 }
 
 @media (max-width: 900px) {
-  .contact__layout {
-    grid-template-columns: minmax(0, 1fr);
+  .form__row--three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .solutions__groups {
