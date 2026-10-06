@@ -88,7 +88,7 @@ export const content = {
     meta: {
       title: 'IMEX Inspection | Denizcilik ve lojistik denetimleri',
       description:
-        'IMEX Inspection, denizcilik ve lojistik sektöründe bağımsız, akredite üçüncü taraf gözetim, denetim ve danışmanlık hizmetleri sunar.',
+        'IMEX Inspection, denizcilik ve lojistik sektöründe bağımsız, denetim ve danışmanlık hizmetleri sunar.',
     },
     nav: {
       services: 'Hizmetler',
@@ -121,7 +121,7 @@ export const content = {
     },
     about: {
       title: 'Hakkımızda',
-      text: 'IMEX Denetim ve Danışmanlık Hizmetleri A.Ş., müşterilerine ticari faaliyetleri için üçüncü taraf bağımsız, akredite, gözetim, denetim ve danışmanlık hizmetleri sunar.',
+      text: 'IMEX Denetim ve Danışmanlık Hizmetleri A.Ş., müşterilerine ticari faaliyetleri için üçüncü taraf bağımsız, gözetim, denetim ve danışmanlık hizmetleri sunar.',
     },
     contact: {
       title: 'İletişime Geçin',
