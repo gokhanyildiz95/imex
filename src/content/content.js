@@ -5,7 +5,7 @@ export const content = {
     meta: {
       title: 'IMEX Inspection | Maritime and logistics inspections',
       description:
-        'IMEX Inspection provides independent, accredited third-party supervision, inspection and consultancy services in the maritime and logistics sector.',
+        'IMEX Inspection provides independent, inspection and consultancy services in the maritime and logistics sector.',
     },
     nav: {
       services: 'Services',
@@ -38,7 +38,7 @@ export const content = {
     },
     about: {
       title: 'About Us',
-      text: 'IMEX Denetim ve Danışmanlık Hizmetleri A.Ş. provides its clients with independent, accredited third-party supervision, inspection and consultancy services for their commercial activities.',
+      text: 'IMEX Denetim ve Danışmanlık Hizmetleri A.Ş. provides its clients with independent, inspection and consultancy services for their commercial activities.',
     },
     contact: {
       title: 'Get in Touch',
