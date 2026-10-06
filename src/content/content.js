@@ -171,7 +171,7 @@ export const content = {
     meta: {
       title: 'IMEX Inspection | Inspektionen in Schifffahrt und Logistik',
       description:
-        'IMEX Inspection bietet unabhängige, akkreditierte Überwachungs-, Inspektions- und Beratungsdienstleistungen in der Schifffahrts- und Logistikbranche.',
+        'IMEX Inspection bietet unabhängige, Inspektions- und Beratungsdienstleistungen in der Schifffahrts- und Logistikbranche.',
     },
     nav: {
       services: 'Leistungen',
@@ -204,7 +204,7 @@ export const content = {
     },
     about: {
       title: 'Über uns',
-      text: 'Die IMEX Denetim ve Danışmanlık Hizmetleri A.Ş. bietet ihren Kunden unabhängige, akkreditierte Drittüberwachungs-, Inspektions- und Beratungsdienstleistungen für ihre Handelstätigkeiten.',
+      text: 'Die IMEX Denetim ve Danışmanlık Hizmetleri A.Ş. bietet ihren Kunden unabhängige, Inspektions- und Beratungsdienstleistungen für ihre Handelstätigkeiten.',
     },
     contact: {
       title: 'Kontakt aufnehmen',
